@@ -1,0 +1,429 @@
+---
+title: "aDNA_clean_part2"
+author: "Tauras"
+date: "8/25/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Blurb for the text:
+
+"The neutral-site FST distribution was estimated for each minor allele frequency (step sizes of 0.01) using a scaling window size which captured at least 200 variants (minimum window size of 0.05), up to a final bin for sites with minor allele frequency >0.39 where were compared with neutral sites with minor allele frequencies from 0.275 to 0.5 (205 sites). Larger windows were necessary at higher minor allele frequencies because fewer neutral loci were profiled than necessary to estimate a reliable null distribution."
+
+## Description of the parameters used
+
+```{r load data, echo=F}
+library(ggplot2); library(patchwork); library(metap)
+load("./DATA/DATA_part1.RData")
+
+## Print some metadata
+
+print(paste("method: ", method, sep=""))
+if (method == 'sliding') {print(paste("minimum window: 5%, minimum neutral sites: ", min_neutral_nsites, sep=""))}
+print(paste("drop individuals missing more than X proportion of sites of data: ", drop_samples_missing, sep=""))
+print(paste("minimum number of samples per population per gt calls: ", min_n, sep=""))
+print(paste("minimum minor allele frequency: ", min_maf, sep=""))
+
+print(paste("numer of candidate loci: ", nrow(info), sep=""))
+print(paste("numer of neutral loci: ", nrow(info_neut), sep=""))
+```
+
+**Minor allele frequency spectrum** of analyzed variants (after 5% maf and 10+ of samples per time point). 
+```{r, echo=F}
+# Export at 1400 x 900
+par(mfrow=c(2,3))
+
+tmp <- subset(info, info$type == "exon")
+plot(density(apply(cbind(tmp$london_pre.alternate,1-tmp$london_pre.alternate),1,min, na.rm=T)), col='red', main="London before", ylim=c(0,20))
+tmp <- subset(info, info$type == "gwas")
+lines(density(apply(cbind(tmp$london_pre.alternate,1-tmp$london_pre.alternate),1,min, na.rm=T)), col='green')
+tmp <- info_neut
+lines(density(apply(cbind(tmp$london_pre.alternate,1-tmp$london_pre.alternate),1,min, na.rm=T)), col='blue')
+
+tmp <- subset(info, info$type == "exon")
+plot(density(apply(cbind(tmp$london_post.alternate,1-tmp$london_post.alternate),1,min, na.rm=T)), col='red', main="London after", ylim=c(0,20))
+tmp <- subset(info, info$type == "gwas")
+lines(density(apply(cbind(tmp$london_post.alternate,1-tmp$london_post.alternate),1,min, na.rm=T)), col='green')
+tmp <- info_neut
+lines(density(apply(cbind(tmp$london_post.alternate,1-tmp$london_post.alternate),1,min, na.rm=T)), col='blue')
+
+tmp <- subset(info, info$type == "exon")
+plot(density(apply(cbind(tmp$london_during.alternate,1-tmp$london_during.alternate),1,min, na.rm=T)), col='red', main="London during", ylim=c(0,20))
+tmp <- subset(info, info$type == "gwas")
+lines(density(apply(cbind(tmp$london_during.alternate,1-tmp$london_during.alternate),1,min, na.rm=T)), col='green')
+tmp <- info_neut
+lines(density(apply(cbind(tmp$london_during.alternate,1-tmp$london_during.alternate),1,min, na.rm=T)), col='blue')
+
+
+tmp <- subset(info, info$type == "exon")
+plot(density(apply(cbind(tmp$denmark_pre.alternate,1-tmp$denmark_pre.alternate),1,min, na.rm=T)), col='red', main="denmark before", ylim=c(0,20))
+tmp <- subset(info, info$type == "gwas")
+lines(density(apply(cbind(tmp$denmark_pre.alternate,1-tmp$denmark_pre.alternate),1,min, na.rm=T)), col='green')
+tmp <- info_neut
+lines(density(apply(cbind(tmp$denmark_pre.alternate,1-tmp$denmark_pre.alternate),1,min, na.rm=T)), col='blue')
+
+tmp <- subset(info, info$type == "exon")
+plot(density(apply(cbind(tmp$denmark_post.alternate,1-tmp$denmark_post.alternate),1,min, na.rm=T)), col='red', main="denmark after", ylim=c(0,20))
+tmp <- subset(info, info$type == "gwas")
+lines(density(apply(cbind(tmp$denmark_post.alternate,1-tmp$denmark_post.alternate),1,min, na.rm=T)), col='green')
+tmp <- info_neut
+lines(density(apply(cbind(tmp$denmark_post.alternate,1-tmp$denmark_post.alternate),1,min, na.rm=T)), col='blue')
+rm(tmp)
+########
+
+```
+
+```{r, echo=F}
+library(ggplot2); library(patchwork)
+
+```
+
+
+
+### Not controlling for maf appears biases results, so we'll use the pvalues controlling for maf.  
+
+```{r, echo=F}
+#no maf
+# info <- cbind(info, pvals[,10:13])
+# colnames(info)[22:25] <- c("L13.pval", "L12.pval", "L23.pval", "D13.pval")
+# info_neut <- cbind(info_neut, neut_pvals[,10:13])
+# colnames(info_neut)[22:25] <- c("L13.pval", "L12.pval", "L23.pval", "D13.pval")
+
+#with maf
+info <- cbind(info, pvals[,6:9])
+colnames(info)[22:25] <- c("L13.pval", "L12.pval", "L23.pval", "D13.pval")
+info_neut <- cbind(info_neut, neut_pvals[,6:9])
+colnames(info_neut)[22:25] <- c("L13.pval", "L12.pval", "L23.pval", "D13.pval")
+
+rm(pvals, neut_pvals)
+```
+
+### Enrichment of highly differentiated sites split by maf bracket
+
+```{r, echo=F, fig.dim=c(10,5)}
+library(ggplot2); library(patchwork)
+
+## we need to get a matrix that has the maf window, the percentile, and the degree of enrichment
+
+tmp_bin_breaks <- c(0.1,.2,.3,.4,0.5)
+tmp_bins <-  matrix(ncol=2, nrow=length(tmp_bin_breaks)); tmp_bins[,1] <- c(0,tmp_bin_breaks[-length(tmp_bin_breaks)]); tmp_bins[,2] <- c(tmp_bin_breaks); rm(tmp_bin_breaks)
+
+print("number of sites in each maf bin")
+for (i in 1:nrow(tmp_bins)) {
+  print(paste(100*tmp_bins[i,1], "% to ", 100*tmp_bins[i,2], "%: ", 
+              nrow(info[info$maf > tmp_bins[i,1] & info$maf <= tmp_bins[i,2],]), " sites", sep=""))
+}
+
+res <- NULL
+for (tmp_enrich in c(0.001, 0.005, seq(0.01,0.1,0.01), seq(0.1,0.2,0.05))) {
+  for (tmp_bin in 1:nrow(tmp_bins)) {
+    for (tmp_pop in c("London", "Denmark", "L12", "L23")) {
+      tmp_data <- info[info$maf > tmp_bins[tmp_bin,1] & info$maf <= tmp_bins[tmp_bin,2],]
+    tmp_res <- as.data.frame(matrix(ncol=6, nrow=1)); colnames(tmp_res) <- c('maf_low', 'maf_high', 'population', 'enrichment', 'observed', 'expected')
+    tmp_res$population <- tmp_pop
+    tmp_res$maf_low <- tmp_bins[tmp_bin,1]; tmp_res$maf_high <- tmp_bins[tmp_bin,2]
+    tmp_res$enrichment <- tmp_enrich  
+    if (tmp_pop == "London") {tmp_res$observed <- sum(tmp_data$L13.pval < tmp_enrich)}
+    if (tmp_pop == "Denmark") {tmp_res$observed <- sum(tmp_data$D13.pval < tmp_enrich)}
+    if (tmp_pop == "L12") {tmp_res$observed <- sum(tmp_data$L12.pval < tmp_enrich)}
+    if (tmp_pop == "L23") {tmp_res$observed <- sum(tmp_data$L23.pval < tmp_enrich)}
+    tmp_res$expected <- nrow(tmp_data)*tmp_enrich
+    rbind(res, tmp_res) -> res; rm(tmp_res, tmp_data)
+    }; rm(tmp_pop)
+  }; rm(tmp_bin)
+}; rm(tmp_enrich, tmp_bins)
+
+res$maf_bin <- paste(100*res$maf_low, "% to ", 100*res$maf_high, "%", sep="")
+res$fc <- log2(res$observed/res$expected)
+
+print("binomial test: 95%")
+tmp <- res[res$population == "London" & res$maf_high > 0.1 & res$enrichment == 0.05,]; tmp
+binom.test(sum(tmp$observed), n = (1/.05)*sum(tmp$expected), p=0.05); log2(sum(tmp$observed)/sum(tmp$expected))
+print("binomial test: 99%")
+tmp <- res[res$population == "London" & res$maf_high > 0.1 & res$enrichment == 0.01,]; tmp
+binom.test(sum(tmp$observed), n = (1/.01)*sum(tmp$expected), p=0.01); log2(sum(tmp$observed)/sum(tmp$expected)); sum(tmp$observed)/sum(tmp$expected)
+print("binomial test: 99%, 30%+")
+tmp <- res[res$population == "London" & res$maf_high >= 0.3 & res$enrichment == 0.01,]; tmp
+binom.test(sum(tmp$observed), n = (1/.01)*sum(tmp$expected), p=0.01); log2(sum(tmp$observed)/sum(tmp$expected)); sum(tmp$observed)/sum(tmp$expected); rm(tmp)
+
+print("binomial test: 95%")
+tmp <- res[res$population == "Denmark" & res$maf_high > 0.1 & res$enrichment == 0.05,]; tmp
+binom.test(sum(tmp$observed), n = (1/.05)*sum(tmp$expected), p=0.05); log2(sum(tmp$observed)/sum(tmp$expected))
+print("binomial test: 99%")
+tmp <- res[res$population == "Denmark" & res$maf_high > 0.1 & res$enrichment == 0.01,]; tmp
+binom.test(sum(tmp$observed), n = (1/.01)*sum(tmp$expected), p=0.01); log2(sum(tmp$observed)/sum(tmp$expected)); sum(tmp$observed)/sum(tmp$expected)
+print("binomial test: 99%, 30%+")
+tmp <- res[res$population == "Denmark" & res$maf_high >= 0.3 & res$enrichment == 0.01,]; tmp
+binom.test(sum(tmp$observed), n = (1/.01)*sum(tmp$expected), p=0.01); log2(sum(tmp$observed)/sum(tmp$expected)); sum(tmp$observed)/sum(tmp$expected); rm(tmp)
+
+
+p1 <- ggplot(res[res$population == "London",], aes(x=1-enrichment , y=fc, color=maf_bin)) +
+  geom_point(size=2) + geom_line() +
+  theme_classic() + ylab("log2(enrichment)") +
+  ggtitle("London: pre vs post") + #coord_cartesian(xlim=c(0,0.1), ylim=c(-0.25,3.75)) +
+  geom_abline(slope=0, intercept=0, color='dark gray') + theme(legend.position = "bottom") + 
+  guides(fill = guide_legend(label.position = "bottom")) + xlab("percentile of neutral variants")
+
+p2 <- ggplot(res[res$population == "Denmark",], aes(x=1-enrichment , y=fc, color=maf_bin)) +
+  geom_point(size=2) + geom_line() +
+  theme_classic() + ylab("log2(enrichment)") +
+  ggtitle("Denmark: pre vs post") + #coord_cartesian(xlim=c(0,0.1), ylim=c(-0.25,3.75)) +
+  geom_abline(slope=0, intercept=0, color='dark gray') + theme(legend.position = "bottom") + 
+  guides(fill = guide_legend(label.position = "bottom")) + xlab("percentile of neutral variants")
+
+p3 <- ggplot(res[res$population == "L12" & res$maf_high > 0.1,], aes(x=1-enrichment , y=fc, color=maf_bin)) +
+  geom_point(size=2) + geom_line() +
+  theme_classic() + ylab("log2(enrichment)") +
+  ggtitle("London: pre vs during") + #coord_cartesian(xlim=c(0,0.1), ylim=c(-0.25,3.75)) +
+  geom_abline(slope=0, intercept=0, color='dark gray') + theme(legend.position = "bottom") + 
+  guides(fill = guide_legend(label.position = "bottom")) + xlab("percentile of neutral variants")
+p4 <- ggplot(res[res$population == "L23" & res$maf_high > 0.1,], aes(x=1-enrichment , y=fc, color=maf_bin)) +
+  geom_point(size=2) + geom_line() +
+  theme_classic() + ylab("log2(enrichment)") +
+  ggtitle("London: during vs post") + #coord_cartesian(xlim=c(0,0.1), ylim=c(-0.25,3.75)) +
+  geom_abline(slope=0, intercept=0, color='dark gray') + theme(legend.position = "bottom") + 
+  guides(fill = guide_legend(label.position = "bottom")) + xlab("percentile of neutral variants")
+
+
+panel_enrichment <- p1 & theme(legend.position = 'bottom')
+panel_enrichment
+
+panel_D_enrichment <- p2 & theme(legend.position = 'bottom')
+
+
+splot_enrichment <- p2 + p3 + p4 + plot_layout(guides="collect") & theme(legend.position = 'bottom'); rm(p1,p2,p3,p4)
+splot_enrichment
+rm(res, tmp)
+
+```
+
+### Correlation in allele frequency betwen time points
+
+```{r, echo=F}
+
+par(mfrow=c(1,2))
+plot(info_neut$london_pre.alternate, info_neut$london_post.alternate, main="London", xlab="before plague", ylab="after plague", frame=F)
+# summary(lm(info_neut$london_pre.alternate ~ info_neut$london_post.alternate))
+
+plot(info_neut$denmark_pre.alternate, info_neut$denmark_post.alternate, main="Denmark", xlab="before plague", ylab="after plague", frame=F)
+# summary(lm(info_neut$denmark_pre.alternate ~ info_neut$denmark_post.alternate))
+# 
+# summary(lm(c(info_neut$london_post.alternate,info_neut$london_pre.alternate) ~ 
+#              c(info_neut$denmark_post.alternate,info_neut$denmark_pre.alternate)))
+# summary(lm(info_neut$london_pre.alternate ~ info_neut$denmark_pre.alternate))
+
+```
+
+### Because the only evidence of enrichment is for minor allele frequencies greater than 10%, let's only consider those sites when detecting candidate loci. 
+
+```{r, echo=F}
+par(mfrow=c(1,2))
+
+info <- info[info$maf >= 0.1,]
+info_neut <- info_neut[info_neut$maf >= 0.1,]
+
+
+## replace p=0 with 1e-4 for metanalysis; metap doesn't work withi p=0
+info$L13.pval[info$L13.pval == 0] <- 1e-5
+info$L12.pval[info$L12.pval == 0] <- 1e-5
+info$L23.pval[info$L23.pval == 0] <- 1e-5
+info$D13.pval[info$D13.pval == 0] <- 1e-5
+info_neut$L12.pval[info_neut$L12.pval == 0] <- 1e-5
+info_neut$L23.pval[info_neut$L23.pval == 0] <- 1e-5
+info_neut$D13.pval[info_neut$D13.pval == 0] <- 1e-5
+
+# # part 1: get metap for london (jointp_london)
+# for (i in 1:nrow(info)) {sumlog(p = cbind(info$L12.pval, info$L23.pval)[i,])$p -> info$jointp_london[i]}
+# for (i in 1:nrow(info_neut)) {sumlog(p = cbind(info_neut$L12.pval, info_neut$L23.pval)[i,])$p -> info_neut$jointp_london[i]}
+# # t1 <- -log10(info_neut$jointp_london); t2 <- -log10(info$jointp_london); 
+# # qqplot(t1, t2, xlab="-log10(p neutral)", ylab="-log10(p)", frame=F, main="London metap"); abline(a=0,b=1,col='red')
+# # rm(t1, t2)
+# # 
+# # part 2: get metap for london + denmark (jointp)
+# for (i in 1:nrow(info)) {sumlog(p = cbind(info$jointp_london, info$D13.pval)[i,])$p -> info$jointp[i]}
+# for (i in 1:nrow(info_neut)) {sumlog(p = cbind(info_neut$jointp_london, info_neut$D13.pval)[i,])$p -> info_neut$jointp[i]}
+# # t1 <- -log10(info_neut$jointp); t2 <- -log10(info$jointp); 
+# # qqplot(t1, t2, xlab="-log10(p neutral)", ylab="-log10(p)", frame=F, main="metap: replication cohorts"); abline(a=0,b=1,col='red')
+# # rm(t1, t2)
+# rm(i)
+# 
+# # jointp_13
+# for (i in 1:nrow(info)) {sumlog(p = cbind(info$L13.pval, info$D13.pval)[i,])$p -> info$jointp_13[i]}
+# info$meanfst_13 <- rowMeans(cbind(info$london_post_pre.fst, info$denmark_post_pre.fst))
+# info$meanp_13 <- rowMeans(cbind(info$L13.pval, info$D13.pval))
+
+
+```
+
+
+## Filter based on concordant patterns
+
+```{r, echo=F}
+# significant in L13
+candidate <- subset(info, info$L13.pval < 0.05)
+candidate_neut <- subset(info_neut, info_neut$L13.pval < 0.05)
+print(paste("First filter, highly differentiated in London (95th percentile):", nrow(candidate)))
+
+# qualitative, opposite direction in individuals who died of the plague
+candidate <- subset(candidate, !(sign(candidate$delta_L12) == sign(candidate$delta_L13)))
+candidate_neut <- subset(candidate_neut, !(sign(candidate_neut$delta_L12) == sign(candidate_neut$delta_L13)))
+print(paste("Second filter, opposite for individuals who died of the plague (no p-value filter):", nrow(candidate)))
+
+# qualitative, opposite direction in individuals who died of the plague
+candidate2 <- subset(candidate, sign(candidate$delta_L13) == sign(candidate$delta_D13) & candidate$D13.pval < 0.1)
+candidate_neut2 <- subset(candidate_neut, sign(candidate_neut$delta_L13) == sign(candidate_neut$delta_D13) & candidate_neut$D13.pval < 0.1)
+print(paste("Third filter, same direction for individuals from Denmark (90th percentile):", nrow(candidate2)))
+
+
+# shared sign between L13 and D13
+candidate <- subset(info, sign(info$delta_D13) == sign(info$delta_L13))
+# opposite sign between L12 and L13 (meaning the frequency protective allele goes down then up, rather than down and partly back up)
+candidate <- subset(candidate, !(sign(candidate$delta_L12) == sign(candidate$delta_L13)))
+# at least one of the directions is highly differentiated relative to the distribution of null locations
+# candidate2 <- subset(candidate, candidate$L13.pval < 0.05 & candidate$jointp < 0.05 )
+
+# # shared sign between L13 and D13
+# candidate_neut <- subset(info_neut, sign(info_neut$delta_D13) == sign(info_neut$delta_L13))
+# # opposite sign between L12 and L23
+# candidate_neut <- subset(candidate_neut, !(sign(candidate_neut$delta_L12) == sign(candidate_neut$delta_L13)))
+# # at least one of the directions is highly differentiated relative to the distribution of null locations
+# candidate_neut2 <- subset(candidate_neut, candidate_neut$L13.pval < 0.05 & candidate_neut$jointp < 0.05 )
+
+# candidate2[order(candidate2$site),]
+
+# nrow(candidate2)
+# nrow(candidate_neut2)
+
+```
+
+### Manhattan plot: all candidate sites
+
+Filter for only candidate (exon/immune) sites which follow the expected patterns, removing those that don't. 
+
+This is 535 sites with no filtering based on significance. 
+```{r, echo =F, fig.dim=c(13,5)}
+
+library(ggnewscale)
+library(qqman); library(data.table); library(lattice)
+for (i in 1:22) {candidate$chr[candidate$chr == paste("chr",i,sep="")] <- i}; rm(i)
+candidate$chr <- as.numeric(candidate$chr)
+
+library(dplyr)
+don <- candidate %>% 
+  # Compute chromosome size
+  group_by(chr) %>% 
+  summarise(chr_len=max(pos)) %>% 
+  # Calculate cumulative position of each chromosome
+  mutate(tot=cumsum(as.numeric(chr_len))-chr_len) %>%
+  select(-chr_len) %>%
+  # Add this info to the initial dataset
+  left_join(candidate, ., by=c("chr"="chr")) %>%
+  # Add a cumulative position of each SNP
+  arrange(chr, pos) %>%
+  mutate( BPcum=pos+tot)
+axisdf = don %>% group_by(chr) %>% summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
+don$is.highlight <- 0; don$is.highlight[don$site %in% candidate2$site] <- 1
+don$is.diff <- 0; don$is.diff[don$L13.pval < 0.05] <- 1
+
+don$end <- c(1,don$BPcum[-length(don$BPcum)])
+don$col = ifelse(as.numeric(don$chr) %% 2 == 0, 0, 1)
+
+panel_manhattan <- ggplot(don, aes(x=BPcum, y=london_post_pre.fst)) + 
+  # facet_grid(. ~ chr) + 
+  # chromosome rectangles
+  geom_rect(aes(xmin=BPcum, 
+                xmax =end, 
+                ymin = -Inf, 
+                ymax = Inf, 
+                fill = factor(col)))  + 
+  scale_fill_manual(values=c('grey95', 'white')) +
+  
+  # points
+  geom_point(data = don[don$chr %in% seq(1,22,2),], aes(color = 1.3*10^(.5-don[don$chr %in% seq(1,22,2),]$L13.pval)), size=1.3*10^(.5-don[don$chr %in% seq(1,22,2),]$D13.pval)) + 
+  scale_color_gradient(low = "grey80", high = "#366B7D") + 
+  
+  new_scale_color() + 
+  geom_point(data = don[don$chr %in% seq(2,22,2),], aes(color = 1.3*10^(.5-don[don$chr %in% seq(2,22,2),]$L13.pval)), size=1.3*10^(.5-don[don$chr %in% seq(2,22,2),]$D13.pval)) + 
+  scale_color_gradient(low = "lightgray", high = "#5C438A") + 
+  
+  # custom axes:
+  scale_x_continuous( label = axisdf$chr, breaks= axisdf$center ) +
+  scale_y_continuous(expand = c(0, 0) ) +     # remove space between plot area and x axis
+  coord_cartesian(ylim=c(0,0.03), xlim=c(2487000, 2648153000)) +
+  
+  # Add highlighted points
+  geom_point(data=subset(don, don$is.highlight==1), aes(x=BPcum, y=london_post_pre.fst), color="orange", size=2.2*10^(.5-subset(don, don$is.highlight==1)$D13.pval)) +
+  
+  # Add label for highlighted points
+  geom_text(aes(label=subset(don, don$is.highlight==1)$site), data=subset(don, don$is.highlight==1), nudge_x=-150000000) +
+  
+  # legends and labels
+  theme_classic() + xlab(label = "chromosome") + ylab(label="Fst: London before vs after plague") +
+  theme( 
+    legend.position="none",
+    panel.border = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(), 
+    axis.text = element_text(color='black'), text=element_text(size=16)
+  )
+panel_manhattan  
+  
+```
+
+
+
+
+
+```{r}
+rm(design, design2, bins, axisdf, perc, min_neutral_nsites, min_n, min_maf, method, mafs, window_size)
+rm(list=ls(pattern="missing_"))
+rm(list=ls(pattern="samples_"))
+
+candidate2$rsid <- c(
+  "rs1052025", "rs17473484", "rs11571319", "rs2549794"
+)
+
+candidate2
+min(info$maf)
+
+# library(Rgb);library(data.table)
+# gtf <- read.gtf("~/my_genomes/hg37/Homo_sapiens.GRCh37.87.chr.gtf.gz")
+# 
+# head(gtf)
+# gtf <- gtf[gtf$feature == "gene" & gtf$gene_biotype == "protein_coding",]
+# 
+# info$gene <- NA
+# for (i in 1:nrow(info)) {
+#   tmp <- subset(gtf, gtf$start - 100000 <= info$pos[i] & gtf$end + 100000 >= info$pos[i])
+#   if (nrow(tmp) >=1 ) {
+#     tmp$dist <- abs(tmp$start - info$pos[i])
+#     info$gene[i] <- tmp$gene_name[tmp$dist == min(tmp$dist)]
+#   }
+#   print(i)
+# }
+# write.table(unique(info$gene), "~/set_of_all_genes_maf10.txt", quote=F, row.names=F, col.names=F)
+# 
+# write.table(unique(info[info$L13.pval < 0.05 & !(sign(info$delta_L12) == sign(info$delta_L13)),]$gene), "~/genes_london_concordant_maf10.txt", quote=F, row.names=F, col.names=F)
+# rm(gtf, tmp, i)
+
+rm(candidate, candidate_neut)
+
+D_replicated_in_Denmark <- candidate2
+A_all_loci <- info
+B_L13_95th <- subset(info, info$L13.pval < 0.05)
+C_replicated_in_plague_burials <- subset(B_L13_95th, !(sign(B_L13_95th$delta_L13) == sign(B_L13_95th$delta_L12)))
+rm(info, candidate2)
+
+save.image("./DATA/r02.candidate_loci.RData")
+
+
+
+```
+
+
+
+
+

@@ -1,0 +1,501 @@
+gt	sample	genotype	status	selection	time	cytokine	Null	Pestis
+1	265	Allele 1	0_expressed	Expressed	5h	G-CSF	13	1325
+1	339	Allele 1	0_expressed	Expressed	5h	G-CSF	13	210
+1	373	Allele 1	0_expressed	Expressed	5h	G-CSF	4	904
+1	797	Allele 1	0_expressed	Expressed	5h	G-CSF	18	818
+1	176	Allele 1	0_expressed	Expressed	5h	G-CSF	18	463
+1	405	Allele 1	0_expressed	Expressed	5h	G-CSF	18	385
+1	133	Allele 1	0_expressed	Expressed	5h	G-CSF	18	325
+1	482	Allele 1	0_expressed	Expressed	5h	G-CSF	18	372
+1	666	Allele 1	0_expressed	Expressed	5h	G-CSF	18	620
+2	241	HE	1_het	Expressed	5h	G-CSF	18	120
+2	661	HE	1_het	Expressed	5h	G-CSF	4	332
+2	953	HE	1_het	Expressed	5h	G-CSF	18	256
+2	540	HE	1_het	Expressed	5h	G-CSF	18	270
+2	549	HE	1_het	Expressed	5h	G-CSF	18	136
+2	561	HE	1_het	Expressed	5h	G-CSF	18	149
+2	604	HE	1_het	Expressed	5h	G-CSF	18	194
+2	217	HE	1_het	Expressed	5h	G-CSF	43	378
+2	27	HE	1_het	Expressed	5h	G-CSF	18	955
+3	702	Allele 2	2_deleterious	2_deleterious	5h	G-CSF	13	611
+3	515	Allele 2	2_deleterious	2_deleterious	5h	G-CSF	4	282
+3	921	Allele 2	2_deleterious	2_deleterious	5h	G-CSF	18	282
+3	344	Allele 2	2_deleterious	2_deleterious	5h	G-CSF	13	1054
+3	485	Allele 2	2_deleterious	2_deleterious	5h	G-CSF	18	817
+3	535	Allele 2	2_deleterious	2_deleterious	5h	G-CSF	18	290
+3	724	Allele 2	2_deleterious	2_deleterious	5h	G-CSF	18	800
+1	265	Allele 1	0_expressed	Expressed	24h	G-CSF	88	10951
+1	339	Allele 1	0_expressed	Expressed	24h	G-CSF	30	8371
+1	373	Allele 1	0_expressed	Expressed	24h	G-CSF	61	6094
+1	797	Allele 1	0_expressed	Expressed	24h	G-CSF	18	4502
+1	176	Allele 1	0_expressed	Expressed	24h	G-CSF	18	6470
+1	405	Allele 1	0_expressed	Expressed	24h	G-CSF	18	3664
+1	133	Allele 1	0_expressed	Expressed	24h	G-CSF	18	3315
+1	482	Allele 1	0_expressed	Expressed	24h	G-CSF	18	4381
+1	666	Allele 1	0_expressed	Expressed	24h	G-CSF	18	3144
+2	241	HE	1_het	Expressed	24h	G-CSF	9	2744
+2	661	HE	1_het	Expressed	24h	G-CSF	4	6645
+2	953	HE	1_het	Expressed	24h	G-CSF	18	3951
+2	540	HE	1_het	Expressed	24h	G-CSF	4	5370
+2	549	HE	1_het	Expressed	24h	G-CSF	88	9866
+2	561	HE	1_het	Expressed	24h	G-CSF	18	9634
+2	604	HE	1_het	Expressed	24h	G-CSF	18	6346
+2	217	HE	1_het	Expressed	24h	G-CSF	39	13660
+2	27	HE	1_het	Expressed	24h	G-CSF	18	5882
+3	702	Allele 2	2_deleterious	2_deleterious	24h	G-CSF	4	18232
+3	515	Allele 2	2_deleterious	2_deleterious	24h	G-CSF	13	20235
+3	921	Allele 2	2_deleterious	2_deleterious	24h	G-CSF	18	10335
+3	344	Allele 2	2_deleterious	2_deleterious	24h	G-CSF	13	6914
+3	485	Allele 2	2_deleterious	2_deleterious	24h	G-CSF	25	8502
+3	535	Allele 2	2_deleterious	2_deleterious	24h	G-CSF	18	5115
+3	724	Allele 2	2_deleterious	2_deleterious	24h	G-CSF	18	9427
+1	265	Allele 1	0_expressed	Expressed	5h	GM-CSF	1	694
+1	339	Allele 1	0_expressed	Expressed	5h	GM-CSF	2	80
+1	373	Allele 1	0_expressed	Expressed	5h	GM-CSF	9	568
+1	797	Allele 1	0_expressed	Expressed	5h	GM-CSF	4	691
+1	176	Allele 1	0_expressed	Expressed	5h	GM-CSF	3	903
+1	405	Allele 1	0_expressed	Expressed	5h	GM-CSF	3	207
+1	133	Allele 1	0_expressed	Expressed	5h	GM-CSF	4	216
+1	482	Allele 1	0_expressed	Expressed	5h	GM-CSF	1	257
+1	666	Allele 1	0_expressed	Expressed	5h	GM-CSF	3	274
+2	241	HE	1_het	Expressed	5h	GM-CSF	3	127
+2	661	HE	1_het	Expressed	5h	GM-CSF	10	158
+2	953	HE	1_het	Expressed	5h	GM-CSF	3	541
+2	540	HE	1_het	Expressed	5h	GM-CSF	3	440
+2	549	HE	1_het	Expressed	5h	GM-CSF	3	79
+2	561	HE	1_het	Expressed	5h	GM-CSF	3	171
+2	604	HE	1_het	Expressed	5h	GM-CSF	3	131
+2	217	HE	1_het	Expressed	5h	GM-CSF	4	178
+2	27	HE	1_het	Expressed	5h	GM-CSF	1	374
+3	702	Allele 2	2_deleterious	2_deleterious	5h	GM-CSF	2	760
+3	515	Allele 2	2_deleterious	2_deleterious	5h	GM-CSF	4	432
+3	921	Allele 2	2_deleterious	2_deleterious	5h	GM-CSF	3	365
+3	344	Allele 2	2_deleterious	2_deleterious	5h	GM-CSF	6	548
+3	485	Allele 2	2_deleterious	2_deleterious	5h	GM-CSF	3	358
+3	535	Allele 2	2_deleterious	2_deleterious	5h	GM-CSF	3	364
+3	724	Allele 2	2_deleterious	2_deleterious	5h	GM-CSF	3	668
+1	265	Allele 1	0_expressed	Expressed	24h	GM-CSF	7	1378
+1	339	Allele 1	0_expressed	Expressed	24h	GM-CSF	1	729
+1	373	Allele 1	0_expressed	Expressed	24h	GM-CSF	13	634
+1	797	Allele 1	0_expressed	Expressed	24h	GM-CSF	1	1350
+1	176	Allele 1	0_expressed	Expressed	24h	GM-CSF	3	1948
+1	405	Allele 1	0_expressed	Expressed	24h	GM-CSF	3	228
+1	133	Allele 1	0_expressed	Expressed	24h	GM-CSF	3	451
+1	482	Allele 1	0_expressed	Expressed	24h	GM-CSF	1	393
+1	666	Allele 1	0_expressed	Expressed	24h	GM-CSF	2	290
+2	241	HE	1_het	Expressed	24h	GM-CSF	1	290
+2	661	HE	1_het	Expressed	24h	GM-CSF	4	409
+2	953	HE	1_het	Expressed	24h	GM-CSF	3	856
+2	540	HE	1_het	Expressed	24h	GM-CSF	3	997
+2	549	HE	1_het	Expressed	24h	GM-CSF	3	729
+2	561	HE	1_het	Expressed	24h	GM-CSF	1	643
+2	604	HE	1_het	Expressed	24h	GM-CSF	1	549
+2	217	HE	1_het	Expressed	24h	GM-CSF	5	826
+2	27	HE	1_het	Expressed	24h	GM-CSF	2	448
+3	702	Allele 2	2_deleterious	2_deleterious	24h	GM-CSF	4	1240
+3	515	Allele 2	2_deleterious	2_deleterious	24h	GM-CSF	1	6586
+3	921	Allele 2	2_deleterious	2_deleterious	24h	GM-CSF	3	1154
+3	344	Allele 2	2_deleterious	2_deleterious	24h	GM-CSF	3	711
+3	485	Allele 2	2_deleterious	2_deleterious	24h	GM-CSF	3	452
+3	535	Allele 2	2_deleterious	2_deleterious	24h	GM-CSF	3	1217
+3	724	Allele 2	2_deleterious	2_deleterious	24h	GM-CSF	3	1516
+1	265	Allele 1	0_expressed	Expressed	5h	IL1B	7	234
+1	339	Allele 1	0_expressed	Expressed	5h	IL1B	3	14
+1	373	Allele 1	0_expressed	Expressed	5h	IL1B	3	166
+1	797	Allele 1	0_expressed	Expressed	5h	IL1B	1	202
+1	176	Allele 1	0_expressed	Expressed	5h	IL1B	0	127
+1	405	Allele 1	0_expressed	Expressed	5h	IL1B	0	69
+1	133	Allele 1	0_expressed	Expressed	5h	IL1B	3	47
+1	482	Allele 1	0_expressed	Expressed	5h	IL1B	3	65
+1	666	Allele 1	0_expressed	Expressed	5h	IL1B	3	155
+2	241	HE	1_het	Expressed	5h	IL1B	1	174
+2	661	HE	1_het	Expressed	5h	IL1B	1	17
+2	953	HE	1_het	Expressed	5h	IL1B	0	299
+2	540	HE	1_het	Expressed	5h	IL1B	5	143
+2	549	HE	1_het	Expressed	5h	IL1B	3	152
+2	561	HE	1_het	Expressed	5h	IL1B	6	56
+2	604	HE	1_het	Expressed	5h	IL1B	2	97
+2	217	HE	1_het	Expressed	5h	IL1B	2	53
+2	27	HE	1_het	Expressed	5h	IL1B	3	199
+3	702	Allele 2	2_deleterious	2_deleterious	5h	IL1B	2	421
+3	515	Allele 2	2_deleterious	2_deleterious	5h	IL1B	1	83
+3	921	Allele 2	2_deleterious	2_deleterious	5h	IL1B	0	121
+3	344	Allele 2	2_deleterious	2_deleterious	5h	IL1B	2	181
+3	485	Allele 2	2_deleterious	2_deleterious	5h	IL1B	2	135
+3	535	Allele 2	2_deleterious	2_deleterious	5h	IL1B	0	161
+3	724	Allele 2	2_deleterious	2_deleterious	5h	IL1B	0	77
+1	265	Allele 1	0_expressed	Expressed	24h	IL1B	3	2476
+1	339	Allele 1	0_expressed	Expressed	24h	IL1B	1	1170
+1	373	Allele 1	0_expressed	Expressed	24h	IL1B	3	1161
+1	797	Allele 1	0_expressed	Expressed	24h	IL1B	0	968
+1	176	Allele 1	0_expressed	Expressed	24h	IL1B	1	2922
+1	405	Allele 1	0_expressed	Expressed	24h	IL1B	3	1033
+1	133	Allele 1	0_expressed	Expressed	24h	IL1B	3	476
+1	482	Allele 1	0_expressed	Expressed	24h	IL1B	3	812
+1	666	Allele 1	0_expressed	Expressed	24h	IL1B	3	687
+2	241	HE	1_het	Expressed	24h	IL1B	2	1104
+2	661	HE	1_het	Expressed	24h	IL1B	0	2723
+2	953	HE	1_het	Expressed	24h	IL1B	0	1619
+2	540	HE	1_het	Expressed	24h	IL1B	3	2093
+2	549	HE	1_het	Expressed	24h	IL1B	55	5925
+2	561	HE	1_het	Expressed	24h	IL1B	3	2064
+2	604	HE	1_het	Expressed	24h	IL1B	3	1208
+2	217	HE	1_het	Expressed	24h	IL1B	0	1179
+2	27	HE	1_het	Expressed	24h	IL1B	3	1707
+3	702	Allele 2	2_deleterious	2_deleterious	24h	IL1B	2	13614
+3	515	Allele 2	2_deleterious	2_deleterious	24h	IL1B	4	2733
+3	921	Allele 2	2_deleterious	2_deleterious	24h	IL1B	0	3117
+3	344	Allele 2	2_deleterious	2_deleterious	24h	IL1B	1	3262
+3	485	Allele 2	2_deleterious	2_deleterious	24h	IL1B	3	639
+3	535	Allele 2	2_deleterious	2_deleterious	24h	IL1B	0	4052
+3	724	Allele 2	2_deleterious	2_deleterious	24h	IL1B	0	3072
+1	265	Allele 1	0_expressed	Expressed	5h	IL1RA	714	4485
+1	339	Allele 1	0_expressed	Expressed	5h	IL1RA	4331	3552
+1	373	Allele 1	0_expressed	Expressed	5h	IL1RA	30541	69600
+1	797	Allele 1	0_expressed	Expressed	5h	IL1RA	59513	141226
+1	176	Allele 1	0_expressed	Expressed	5h	IL1RA	31810	104319
+1	405	Allele 1	0_expressed	Expressed	5h	IL1RA	59772	103565
+1	133	Allele 1	0_expressed	Expressed	5h	IL1RA	15734	64084
+1	482	Allele 1	0_expressed	Expressed	5h	IL1RA	12094	71067
+1	666	Allele 1	0_expressed	Expressed	5h	IL1RA	15089	82050
+2	241	HE	1_het	Expressed	5h	IL1RA	1252	3156
+2	661	HE	1_het	Expressed	5h	IL1RA	63801	64098
+2	953	HE	1_het	Expressed	5h	IL1RA	7843	80504
+2	540	HE	1_het	Expressed	5h	IL1RA	39889	24566
+2	549	HE	1_het	Expressed	5h	IL1RA	57239	31240
+2	561	HE	1_het	Expressed	5h	IL1RA	8639	12316
+2	604	HE	1_het	Expressed	5h	IL1RA	162147	120516
+2	217	HE	1_het	Expressed	5h	IL1RA	175196	158709
+2	27	HE	1_het	Expressed	5h	IL1RA	15806	86031
+3	702	Allele 2	2_deleterious	2_deleterious	5h	IL1RA	3076	16967
+3	515	Allele 2	2_deleterious	2_deleterious	5h	IL1RA	2634	1597
+3	921	Allele 2	2_deleterious	2_deleterious	5h	IL1RA	2755	13975
+3	344	Allele 2	2_deleterious	2_deleterious	5h	IL1RA	43776	50002
+3	485	Allele 2	2_deleterious	2_deleterious	5h	IL1RA	29139	66055
+3	535	Allele 2	2_deleterious	2_deleterious	5h	IL1RA	11479	41188
+3	724	Allele 2	2_deleterious	2_deleterious	5h	IL1RA	19775	53089
+1	265	Allele 1	0_expressed	Expressed	24h	IL1RA	2273	12455
+1	339	Allele 1	0_expressed	Expressed	24h	IL1RA	8999	33264
+1	373	Allele 1	0_expressed	Expressed	24h	IL1RA	55798	349316
+1	797	Allele 1	0_expressed	Expressed	24h	IL1RA	126681	1195300
+1	176	Allele 1	0_expressed	Expressed	24h	IL1RA	37215	599512
+1	405	Allele 1	0_expressed	Expressed	24h	IL1RA	40346	490619
+1	133	Allele 1	0_expressed	Expressed	24h	IL1RA	20204	254020
+1	482	Allele 1	0_expressed	Expressed	24h	IL1RA	6269	370885
+1	666	Allele 1	0_expressed	Expressed	24h	IL1RA	12734	326954
+2	241	HE	1_het	Expressed	24h	IL1RA	3552	34083
+2	661	HE	1_het	Expressed	24h	IL1RA	87249	266941
+2	953	HE	1_het	Expressed	24h	IL1RA	8711	463022
+2	540	HE	1_het	Expressed	24h	IL1RA	41435	736205
+2	549	HE	1_het	Expressed	24h	IL1RA	77994	273575
+2	561	HE	1_het	Expressed	24h	IL1RA	11898	217496
+2	604	HE	1_het	Expressed	24h	IL1RA	172660	5239
+2	217	HE	1_het	Expressed	24h	IL1RA	191476	389160
+2	27	HE	1_het	Expressed	24h	IL1RA	18830	349419
+3	702	Allele 2	2_deleterious	2_deleterious	24h	IL1RA	1766	48301
+3	515	Allele 2	2_deleterious	2_deleterious	24h	IL1RA	1766	23981
+3	921	Allele 2	2_deleterious	2_deleterious	24h	IL1RA	2674	80737
+3	344	Allele 2	2_deleterious	2_deleterious	24h	IL1RA	53089	342607
+3	485	Allele 2	2_deleterious	2_deleterious	24h	IL1RA	63445	401618
+3	535	Allele 2	2_deleterious	2_deleterious	24h	IL1RA	15342	306817
+3	724	Allele 2	2_deleterious	2_deleterious	24h	IL1RA	30922	446701
+1	265	Allele 1	0_expressed	Expressed	5h	IL10	14	1639
+1	339	Allele 1	0_expressed	Expressed	5h	IL10	39	233
+1	373	Allele 1	0_expressed	Expressed	5h	IL10	24	1153
+1	797	Allele 1	0_expressed	Expressed	5h	IL10	9	858
+1	176	Allele 1	0_expressed	Expressed	5h	IL10	13	1003
+1	405	Allele 1	0_expressed	Expressed	5h	IL10	10	2059
+1	133	Allele 1	0_expressed	Expressed	5h	IL10	5	2513
+1	482	Allele 1	0_expressed	Expressed	5h	IL10	4	2308
+1	666	Allele 1	0_expressed	Expressed	5h	IL10	3	3158
+2	241	HE	1_het	Expressed	5h	IL10	105	525
+2	661	HE	1_het	Expressed	5h	IL10	55	861
+2	953	HE	1_het	Expressed	5h	IL10	13	1179
+2	540	HE	1_het	Expressed	5h	IL10	9	1457
+2	549	HE	1_het	Expressed	5h	IL10	13	985
+2	561	HE	1_het	Expressed	5h	IL10	1	1091
+2	604	HE	1_het	Expressed	5h	IL10	2	1157
+2	217	HE	1_het	Expressed	5h	IL10	15	475
+2	27	HE	1_het	Expressed	5h	IL10	3	2799
+3	702	Allele 2	2_deleterious	2_deleterious	5h	IL10	38	4175
+3	515	Allele 2	2_deleterious	2_deleterious	5h	IL10	179	490
+3	921	Allele 2	2_deleterious	2_deleterious	5h	IL10	70	2107
+3	344	Allele 2	2_deleterious	2_deleterious	5h	IL10	78	1616
+3	485	Allele 2	2_deleterious	2_deleterious	5h	IL10	21	1708
+3	535	Allele 2	2_deleterious	2_deleterious	5h	IL10	13	1696
+3	724	Allele 2	2_deleterious	2_deleterious	5h	IL10	13	1793
+1	265	Allele 1	0_expressed	Expressed	24h	IL10	25	2218
+1	339	Allele 1	0_expressed	Expressed	24h	IL10	23	6467
+1	373	Allele 1	0_expressed	Expressed	24h	IL10	23	4487
+1	797	Allele 1	0_expressed	Expressed	24h	IL10	4	6140
+1	176	Allele 1	0_expressed	Expressed	24h	IL10	13	5123
+1	405	Allele 1	0_expressed	Expressed	24h	IL10	2	7605
+1	133	Allele 1	0_expressed	Expressed	24h	IL10	4	7745
+1	482	Allele 1	0_expressed	Expressed	24h	IL10	3	4446
+1	666	Allele 1	0_expressed	Expressed	24h	IL10	2	5852
+2	241	HE	1_het	Expressed	24h	IL10	58	6529
+2	661	HE	1_het	Expressed	24h	IL10	14	8025
+2	953	HE	1_het	Expressed	24h	IL10	13	8864
+2	540	HE	1_het	Expressed	24h	IL10	11	7306
+2	549	HE	1_het	Expressed	24h	IL10	19	8448
+2	561	HE	1_het	Expressed	24h	IL10	19	6714
+2	604	HE	1_het	Expressed	24h	IL10	28	4706
+2	217	HE	1_het	Expressed	24h	IL10	6	10663
+2	27	HE	1_het	Expressed	24h	IL10	1	5596
+3	702	Allele 2	2_deleterious	2_deleterious	24h	IL10	54	7774
+3	515	Allele 2	2_deleterious	2_deleterious	24h	IL10	82	4799
+3	921	Allele 2	2_deleterious	2_deleterious	24h	IL10	7	13950
+3	344	Allele 2	2_deleterious	2_deleterious	24h	IL10	21	8035
+3	485	Allele 2	2_deleterious	2_deleterious	24h	IL10	12	6721
+3	535	Allele 2	2_deleterious	2_deleterious	24h	IL10	13	26320
+3	724	Allele 2	2_deleterious	2_deleterious	24h	IL10	13	12949
+1	265	Allele 1	0_expressed	Expressed	5h	CCL3	439	11801
+1	339	Allele 1	0_expressed	Expressed	5h	CCL3	645	7975
+1	373	Allele 1	0_expressed	Expressed	5h	CCL3	1394	140017
+1	797	Allele 1	0_expressed	Expressed	5h	CCL3	480	196216
+1	176	Allele 1	0_expressed	Expressed	5h	CCL3	100	216972
+1	405	Allele 1	0_expressed	Expressed	5h	CCL3	112	278260
+1	133	Allele 1	0_expressed	Expressed	5h	CCL3	87	131330
+1	482	Allele 1	0_expressed	Expressed	5h	CCL3	73	153650
+1	666	Allele 1	0_expressed	Expressed	5h	CCL3	55	224275
+2	241	HE	1_het	Expressed	5h	CCL3	707	11077
+2	661	HE	1_het	Expressed	5h	CCL3	720	34275
+2	953	HE	1_het	Expressed	5h	CCL3	20	141995
+2	540	HE	1_het	Expressed	5h	CCL3	352	142685
+2	549	HE	1_het	Expressed	5h	CCL3	234	69829
+2	561	HE	1_het	Expressed	5h	CCL3	396	44057
+2	604	HE	1_het	Expressed	5h	CCL3	234	106781
+2	217	HE	1_het	Expressed	5h	CCL3	348	133766
+2	27	HE	1_het	Expressed	5h	CCL3	20	214448
+3	702	Allele 2	2_deleterious	2_deleterious	5h	CCL3	502	10488
+3	515	Allele 2	2_deleterious	2_deleterious	5h	CCL3	1443	11635
+3	921	Allele 2	2_deleterious	2_deleterious	5h	CCL3	610	20356
+3	344	Allele 2	2_deleterious	2_deleterious	5h	CCL3	822	65146
+3	485	Allele 2	2_deleterious	2_deleterious	5h	CCL3	1772	99924
+3	535	Allele 2	2_deleterious	2_deleterious	5h	CCL3	20	57063
+3	724	Allele 2	2_deleterious	2_deleterious	5h	CCL3	58	67933
+1	265	Allele 1	0_expressed	Expressed	24h	CCL3	1185	19486
+1	339	Allele 1	0_expressed	Expressed	24h	CCL3	216	49759
+1	373	Allele 1	0_expressed	Expressed	24h	CCL3	445	243415
+1	797	Allele 1	0_expressed	Expressed	24h	CCL3	152	364785
+1	176	Allele 1	0_expressed	Expressed	24h	CCL3	53	382849
+1	405	Allele 1	0_expressed	Expressed	24h	CCL3	62	455870
+1	133	Allele 1	0_expressed	Expressed	24h	CCL3	49	245522
+1	482	Allele 1	0_expressed	Expressed	24h	CCL3	20	298622
+1	666	Allele 1	0_expressed	Expressed	24h	CCL3	4	269287
+2	241	HE	1_het	Expressed	24h	CCL3	226	28595
+2	661	HE	1_het	Expressed	24h	CCL3	172	86614
+2	953	HE	1_het	Expressed	24h	CCL3	21	204186
+2	540	HE	1_het	Expressed	24h	CCL3	298	169214
+2	549	HE	1_het	Expressed	24h	CCL3	15815	257236
+2	561	HE	1_het	Expressed	24h	CCL3	424	41890
+2	604	HE	1_het	Expressed	24h	CCL3	679	198624
+2	217	HE	1_het	Expressed	24h	CCL3	247	209515
+2	27	HE	1_het	Expressed	24h	CCL3	20	292135
+3	702	Allele 2	2_deleterious	2_deleterious	24h	CCL3	401	20209
+3	515	Allele 2	2_deleterious	2_deleterious	24h	CCL3	505	48082
+3	921	Allele 2	2_deleterious	2_deleterious	24h	CCL3	132	47635
+3	344	Allele 2	2_deleterious	2_deleterious	24h	CCL3	274	181165
+3	485	Allele 2	2_deleterious	2_deleterious	24h	CCL3	375	199021
+3	535	Allele 2	2_deleterious	2_deleterious	24h	CCL3	14	120604
+3	724	Allele 2	2_deleterious	2_deleterious	24h	CCL3	28	204687
+1	265	Allele 1	0_expressed	Expressed	5h	TNFA	5	1752
+1	339	Allele 1	0_expressed	Expressed	5h	TNFA	47	244
+1	373	Allele 1	0_expressed	Expressed	5h	TNFA	30	17742
+1	797	Allele 1	0_expressed	Expressed	5h	TNFA	38	39134
+1	176	Allele 1	0_expressed	Expressed	5h	TNFA	2	60873
+1	405	Allele 1	0_expressed	Expressed	5h	TNFA	5	9529
+1	133	Allele 1	0_expressed	Expressed	5h	TNFA	5	7833
+1	482	Allele 1	0_expressed	Expressed	5h	TNFA	1	10222
+1	666	Allele 1	0_expressed	Expressed	5h	TNFA	2	10389
+2	241	HE	1_het	Expressed	5h	TNFA	83	994
+2	661	HE	1_het	Expressed	5h	TNFA	55	3741
+2	953	HE	1_het	Expressed	5h	TNFA	5	42493
+2	540	HE	1_het	Expressed	5h	TNFA	3	26029
+2	549	HE	1_het	Expressed	5h	TNFA	5	7386
+2	561	HE	1_het	Expressed	5h	TNFA	9	5411
+2	604	HE	1_het	Expressed	5h	TNFA	5	11907
+2	217	HE	1_het	Expressed	5h	TNFA	18	17213
+2	27	HE	1_het	Expressed	5h	TNFA	5	9717
+3	702	Allele 2	2_deleterious	2_deleterious	5h	TNFA	23	1899
+3	515	Allele 2	2_deleterious	2_deleterious	5h	TNFA	160	1122
+3	921	Allele 2	2_deleterious	2_deleterious	5h	TNFA	29	2795
+3	344	Allele 2	2_deleterious	2_deleterious	5h	TNFA	28	5820
+3	485	Allele 2	2_deleterious	2_deleterious	5h	TNFA	28	14481
+3	535	Allele 2	2_deleterious	2_deleterious	5h	TNFA	5	10451
+3	724	Allele 2	2_deleterious	2_deleterious	5h	TNFA	2	17763
+1	265	Allele 1	0_expressed	Expressed	24h	TNFA	62	4135
+1	339	Allele 1	0_expressed	Expressed	24h	TNFA	38	577
+1	373	Allele 1	0_expressed	Expressed	24h	TNFA	41	7663
+1	797	Allele 1	0_expressed	Expressed	24h	TNFA	24	16080
+1	176	Allele 1	0_expressed	Expressed	24h	TNFA	5	44697
+1	405	Allele 1	0_expressed	Expressed	24h	TNFA	1	3007
+1	133	Allele 1	0_expressed	Expressed	24h	TNFA	2	1921
+1	482	Allele 1	0_expressed	Expressed	24h	TNFA	0	4546
+1	666	Allele 1	0_expressed	Expressed	24h	TNFA	2	3957
+2	241	HE	1_het	Expressed	24h	TNFA	50	526
+2	661	HE	1_het	Expressed	24h	TNFA	28	2393
+2	953	HE	1_het	Expressed	24h	TNFA	5	40861
+2	540	HE	1_het	Expressed	24h	TNFA	15	28813
+2	549	HE	1_het	Expressed	24h	TNFA	29	5846
+2	561	HE	1_het	Expressed	24h	TNFA	14	4853
+2	604	HE	1_het	Expressed	24h	TNFA	30	9703
+2	217	HE	1_het	Expressed	24h	TNFA	47	3434
+2	27	HE	1_het	Expressed	24h	TNFA	1	3864
+3	702	Allele 2	2_deleterious	2_deleterious	24h	TNFA	63	770
+3	515	Allele 2	2_deleterious	2_deleterious	24h	TNFA	76	2663
+3	921	Allele 2	2_deleterious	2_deleterious	24h	TNFA	11	1826
+3	344	Allele 2	2_deleterious	2_deleterious	24h	TNFA	20	3023
+3	485	Allele 2	2_deleterious	2_deleterious	24h	TNFA	22	5521
+3	535	Allele 2	2_deleterious	2_deleterious	24h	TNFA	5	8650
+3	724	Allele 2	2_deleterious	2_deleterious	24h	TNFA	0	10613
+1	265	Allele 1	0_expressed	Expressed	5h	IL6	111	1747
+1	339	Allele 1	0_expressed	Expressed	5h	IL6	37	180
+1	373	Allele 1	0_expressed	Expressed	5h	IL6	75	8956
+1	797	Allele 1	0_expressed	Expressed	5h	IL6	23	4792
+1	176	Allele 1	0_expressed	Expressed	5h	IL6	1	6778
+1	405	Allele 1	0_expressed	Expressed	5h	IL6	6	976
+1	133	Allele 1	0_expressed	Expressed	5h	IL6	2	1549
+1	482	Allele 1	0_expressed	Expressed	5h	IL6	6	790
+1	666	Allele 1	0_expressed	Expressed	5h	IL6	9	9090
+2	241	HE	1_het	Expressed	5h	IL6	58	371
+2	661	HE	1_het	Expressed	5h	IL6	15	95
+2	953	HE	1_het	Expressed	5h	IL6	6	10374
+2	540	HE	1_het	Expressed	5h	IL6	4	1182
+2	549	HE	1_het	Expressed	5h	IL6	3	512
+2	561	HE	1_het	Expressed	5h	IL6	101	1246
+2	604	HE	1_het	Expressed	5h	IL6	7	320
+2	217	HE	1_het	Expressed	5h	IL6	95	2622
+2	27	HE	1_het	Expressed	5h	IL6	6	4672
+3	702	Allele 2	2_deleterious	2_deleterious	5h	IL6	19	368
+3	515	Allele 2	2_deleterious	2_deleterious	5h	IL6	101	739
+3	921	Allele 2	2_deleterious	2_deleterious	5h	IL6	11	294
+3	344	Allele 2	2_deleterious	2_deleterious	5h	IL6	4	294
+3	485	Allele 2	2_deleterious	2_deleterious	5h	IL6	187	12512
+3	535	Allele 2	2_deleterious	2_deleterious	5h	IL6	6	720
+3	724	Allele 2	2_deleterious	2_deleterious	5h	IL6	6	1405
+1	265	Allele 1	0_expressed	Expressed	24h	IL6	137	4683
+1	339	Allele 1	0_expressed	Expressed	24h	IL6	66	2410
+1	373	Allele 1	0_expressed	Expressed	24h	IL6	268	47186
+1	797	Allele 1	0_expressed	Expressed	24h	IL6	14	19899
+1	176	Allele 1	0_expressed	Expressed	24h	IL6	6	61661
+1	405	Allele 1	0_expressed	Expressed	24h	IL6	10	31177
+1	133	Allele 1	0_expressed	Expressed	24h	IL6	0	4314
+1	482	Allele 1	0_expressed	Expressed	24h	IL6	6	2607
+1	666	Allele 1	0_expressed	Expressed	24h	IL6	7	4098
+2	241	HE	1_het	Expressed	24h	IL6	107	4352
+2	661	HE	1_het	Expressed	24h	IL6	17	11969
+2	953	HE	1_het	Expressed	24h	IL6	1	52764
+2	540	HE	1_het	Expressed	24h	IL6	84	11324
+2	549	HE	1_het	Expressed	24h	IL6	1535	20415
+2	561	HE	1_het	Expressed	24h	IL6	237	29472
+2	604	HE	1_het	Expressed	24h	IL6	326	29291
+2	217	HE	1_het	Expressed	24h	IL6	71	52501
+2	27	HE	1_het	Expressed	24h	IL6	6	5905
+3	702	Allele 2	2_deleterious	2_deleterious	24h	IL6	75	4157
+3	515	Allele 2	2_deleterious	2_deleterious	24h	IL6	173	7041
+3	921	Allele 2	2_deleterious	2_deleterious	24h	IL6	14	6408
+3	344	Allele 2	2_deleterious	2_deleterious	24h	IL6	5	4628
+3	485	Allele 2	2_deleterious	2_deleterious	24h	IL6	294	42734
+3	535	Allele 2	2_deleterious	2_deleterious	24h	IL6	6	9819
+3	724	Allele 2	2_deleterious	2_deleterious	24h	IL6	6	17704
+1	265	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	2569	6957
+1	339	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	1728	1190
+1	373	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	134520	117038
+1	797	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	158993	125744
+1	176	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	31483	40720
+1	405	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	62107	64260
+1	133	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	29915	40028
+1	482	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	34359	54976
+1	666	Allele 1	0_expressed	Expressed	5h	CCL2/MCP1	28063	58518
+2	241	HE	1_het	Expressed	5h	CCL2/MCP1	4278	2746
+2	661	HE	1_het	Expressed	5h	CCL2/MCP1	21631	16722
+2	953	HE	1_het	Expressed	5h	CCL2/MCP1	16500	26834
+2	540	HE	1_het	Expressed	5h	CCL2/MCP1	28720	7913
+2	549	HE	1_het	Expressed	5h	CCL2/MCP1	5809	4093
+2	561	HE	1_het	Expressed	5h	CCL2/MCP1	26781	5374
+2	604	HE	1_het	Expressed	5h	CCL2/MCP1	46284	9254
+2	217	HE	1_het	Expressed	5h	CCL2/MCP1	346968	302754
+2	27	HE	1_het	Expressed	5h	CCL2/MCP1	22432	26567
+3	702	Allele 2	2_deleterious	2_deleterious	5h	CCL2/MCP1	2035	3053
+3	515	Allele 2	2_deleterious	2_deleterious	5h	CCL2/MCP1	822	979
+3	921	Allele 2	2_deleterious	2_deleterious	5h	CCL2/MCP1	1902	2453
+3	344	Allele 2	2_deleterious	2_deleterious	5h	CCL2/MCP1	18677	14589
+3	485	Allele 2	2_deleterious	2_deleterious	5h	CCL2/MCP1	63158	99096
+3	535	Allele 2	2_deleterious	2_deleterious	5h	CCL2/MCP1	5609	6576
+3	724	Allele 2	2_deleterious	2_deleterious	5h	CCL2/MCP1	3412	8065
+1	265	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	7825	10182
+1	339	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	3539	22680
+1	373	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	225508	292558
+1	797	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	275090	340829
+1	176	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	31944	202108
+1	405	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	36854	242825
+1	133	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	25848	54386
+1	482	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	15556	75313
+1	666	Allele 1	0_expressed	Expressed	24h	CCL2/MCP1	22420	41518
+2	241	HE	1_het	Expressed	24h	CCL2/MCP1	12714	29510
+2	661	HE	1_het	Expressed	24h	CCL2/MCP1	22262	68939
+2	953	HE	1_het	Expressed	24h	CCL2/MCP1	15764	106389
+2	540	HE	1_het	Expressed	24h	CCL2/MCP1	57825	100305
+2	549	HE	1_het	Expressed	24h	CCL2/MCP1	88985	78828
+2	561	HE	1_het	Expressed	24h	CCL2/MCP1	33873	64633
+2	604	HE	1_het	Expressed	24h	CCL2/MCP1	72019	338840
+2	217	HE	1_het	Expressed	24h	CCL2/MCP1	323507	437877
+2	27	HE	1_het	Expressed	24h	CCL2/MCP1	22197	28134
+3	702	Allele 2	2_deleterious	2_deleterious	24h	CCL2/MCP1	1982	7533
+3	515	Allele 2	2_deleterious	2_deleterious	24h	CCL2/MCP1	6374	6106
+3	921	Allele 2	2_deleterious	2_deleterious	24h	CCL2/MCP1	2429	8786
+3	344	Allele 2	2_deleterious	2_deleterious	24h	CCL2/MCP1	12329	65821
+3	485	Allele 2	2_deleterious	2_deleterious	24h	CCL2/MCP1	185557	229007
+3	535	Allele 2	2_deleterious	2_deleterious	24h	CCL2/MCP1	5239	34627
+3	724	Allele 2	2_deleterious	2_deleterious	24h	CCL2/MCP1	3920	67200
+1	265	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	2147	18246
+1	339	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	3410	5837
+1	373	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	38259	140465
+1	797	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	49627	258597
+1	176	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	27732	NA
+1	405	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	22200	113546
+1	133	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	9490	63757
+1	482	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	7055	51305
+1	666	Allele 1	0_expressed	Expressed	5h	CXCL8/IL8	5927	72382
+2	241	HE	1_het	Expressed	5h	CXCL8/IL8	4606	10501
+2	661	HE	1_het	Expressed	5h	CXCL8/IL8	14435	44079
+2	953	HE	1_het	Expressed	5h	CXCL8/IL8	8028	168908
+2	540	HE	1_het	Expressed	5h	CXCL8/IL8	30349	171611
+2	549	HE	1_het	Expressed	5h	CXCL8/IL8	26909	90590
+2	561	HE	1_het	Expressed	5h	CXCL8/IL8	19552	49865
+2	604	HE	1_het	Expressed	5h	CXCL8/IL8	47462	239766
+2	217	HE	1_het	Expressed	5h	CXCL8/IL8	135173	193270
+2	27	HE	1_het	Expressed	5h	CXCL8/IL8	3489	111625
+3	702	Allele 2	2_deleterious	2_deleterious	5h	CXCL8/IL8	5105	46095
+3	515	Allele 2	2_deleterious	2_deleterious	5h	CXCL8/IL8	1886	11823
+3	921	Allele 2	2_deleterious	2_deleterious	5h	CXCL8/IL8	3779	28636
+3	344	Allele 2	2_deleterious	2_deleterious	5h	CXCL8/IL8	10929	49389
+3	485	Allele 2	2_deleterious	2_deleterious	5h	CXCL8/IL8	27511	89632
+3	535	Allele 2	2_deleterious	2_deleterious	5h	CXCL8/IL8	1910	55764
+3	724	Allele 2	2_deleterious	2_deleterious	5h	CXCL8/IL8	2590	118735
+1	265	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	17268	97624
+1	339	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	7192	92742
+1	373	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	129189	1220100
+1	797	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	75968	1023400
+1	176	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	36929	930038
+1	405	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	18817	623748
+1	133	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	8912	541239
+1	482	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	3840	580545
+1	666	Allele 1	0_expressed	Expressed	24h	CXCL8/IL8	5450	434834
+2	241	HE	1_het	Expressed	24h	CXCL8/IL8	31360	89243
+2	661	HE	1_het	Expressed	24h	CXCL8/IL8	26308	282927
+2	953	HE	1_het	Expressed	24h	CXCL8/IL8	7569	1246900
+2	540	HE	1_het	Expressed	24h	CXCL8/IL8	45988	687266
+2	549	HE	1_het	Expressed	24h	CXCL8/IL8	221426	575320
+2	561	HE	1_het	Expressed	24h	CXCL8/IL8	21715	654436
+2	604	HE	1_het	Expressed	24h	CXCL8/IL8	73269	1263700
+2	217	HE	1_het	Expressed	24h	CXCL8/IL8	200125	5322600
+2	27	HE	1_het	Expressed	24h	CXCL8/IL8	3472	704372
+3	702	Allele 2	2_deleterious	2_deleterious	24h	CXCL8/IL8	10501	139272
+3	515	Allele 2	2_deleterious	2_deleterious	24h	CXCL8/IL8	21475	196093
+3	921	Allele 2	2_deleterious	2_deleterious	24h	CXCL8/IL8	6560	183006
+3	344	Allele 2	2_deleterious	2_deleterious	24h	CXCL8/IL8	14947	501131
+3	485	Allele 2	2_deleterious	2_deleterious	24h	CXCL8/IL8	66927	595214
+3	535	Allele 2	2_deleterious	2_deleterious	24h	CXCL8/IL8	2544	456310
+3	724	Allele 2	2_deleterious	2_deleterious	24h	CXCL8/IL8	3455	1044900

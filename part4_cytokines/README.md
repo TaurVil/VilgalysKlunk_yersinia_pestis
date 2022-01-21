@@ -1,0 +1,3 @@
+To test whether ERAP2 genotype affected cellular phenotypes in response to plague beyond gene expression, we also measured cytokine levels in macrophages after stimulation with _Yersinia pestis_ or a control. These individuals were genotyped at ERAP2 as having either being homozygous for the functional protective allele, being homozygous for the nonsense-mediated decay and deleterious allele, or being heterozygous. 
+
+Summarized data for this experiment is included in `DATA` and the code to produce the analyses and figure 4 is in the R script. 
