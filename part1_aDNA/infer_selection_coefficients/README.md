@@ -1,5 +1,5 @@
 This repository hosts scripts used to obtain and replicate estimates of confidence interval of the four SNP-of-interest in Klunk & Vigalys (2022). These loci are:
-| chr | position (hg19) | rsID | relevant gene | estimated _s_ | adjusted _s_ | 95\% CI | Empr. _p_-value* |
+| chr | position (hg19) | rsID | relevant gene | estimated _s_ | adjusted _s_ | 95\% CI | Emp. percentile* |
 |:-----:|-----------------:| :----: | :------:| :----: | :---: | :---: | :--: | 
 | 5 | 96,244,549 | rs2549794 | _ERAP1_/2 | 0.39 | 0.40 | (0.19, 0.62) | 0* | 
 | 5 | 114,915,460 | rs17473484 | _TICAM2_/_TMED7_ | -0.28 | -0.26 | (-0.59, 0.06) | 3.63 x 10<sup>-3</sup> |
@@ -9,7 +9,7 @@ This repository hosts scripts used to obtain and replicate estimates of confiden
 <details>
   <summary>*:</summary>
   
-  See details about obtaining empirical _p_-values at "Note" in part 3.1.
+  See details about obtaining empirical percentile at "Note" in part 3.1.
 </details>
 
 
@@ -100,7 +100,7 @@ python Compute_LLs_est_shat.py _candidate_loci_derived_counts.txt Candidates_der
 ```
 This script will generate two files with their respective log-likelihoods, `Candidates_derived_all_per-site.txt`, and max-likelihood point estimates of s_hat for each candidate SNP, written to `Candidates_derived_all_maxLLR.txt`.
   
-In the same manner, to obtain the "empirical _p_-value", _i.e._ the quantile among neutral loci, of the combined log-likelihoods for candidate loci, one can run:
+In the same manner, to obtain the "empirical percentile", _i.e._ the quantile among neutral loci, of the combined log-likelihoods for candidate loci, one can run:
 
 ```shell
 python Compute_LLs_est_shat.py Samples_neutral_filtered_WG.txt WG_neutral --Ne 5e3,5e3
@@ -117,7 +117,7 @@ python report_percentiles.py Candidates_derived_all_maxLLR.txt WG_neutral_all_ma
   <summary>Note</summary>
   
   1. The "LLR" and "MLR" here are short for "log-likelihood ratio" and "maximum log-likelihood ratio" for each locus. These ratios are obtained by compairing the log-likelihood of the given _s_ to that of _s_=0, _i.e._ 2(LL[s] - LL[0]), for the locus considered. Because LL[0] is a constant for any given loci, maximizing the LLR is effectively the same as maximizing the likelihood.
-  2. Because the quantiles are by default not corrected for multiple testing, when we interpret them as the "empirical _p_-value", they are also subject to multiple-testing issues.
+  2. Because the quantiles are by default not corrected for multiple testing, when we interpret them as the "empirical percentile", they are also subject to multiple-testing issues.
 </details>
 
 We include a helper script to visualize the liklihood surface of these candidate SNPs. To replicate Fig. S4, given the outputs from previous commands, run:
