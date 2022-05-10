@@ -4,7 +4,7 @@ This repository hosts scripts used to obtain and replicate estimates of confiden
 | 5 | 96,244,549 | rs2549794 | _ERAP1_/2 | 0.39 | 0.40 | (0.19, 0.62) | 0* | 
 | 5 | 114,915,460 | rs17473484 | _TICAM2_/_TMED7_ | -0.28 | -0.26 | (-0.59, 0.06) | 3.63 x 10<sup>-3</sup> |
 | 18 | 77,287,776 | rs1052025 | _NFATC1_ | 0.44 | 0.43 | (0.11, 0.77) | 9.55 x 10<sup>-5</sup> |
-| 2 | 204,738,938 | rs11571319 | _CTLA4_ | 0.26 | 0.29 | (-0.0012, 0.61) | 2.10 x 10<sup>-3</sup> |
+| 2 | 204,738,938 | rs11571319 | _CTLA4_ | 0.26 | 0.29 | (0.00, 0.61) | 2.10 x 10<sup>-3</sup> |
 
 <details>
   <summary>*:</summary>
