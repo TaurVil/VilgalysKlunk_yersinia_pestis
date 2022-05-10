@@ -6,3 +6,4 @@ In this section, we describe
 
 **chunk 3**: Using the results from chunk 2, identify an enrichment of positive selection in immune-related regions and identify candidate variants for positive selection (Figure 2, Table S1). 
 
+**infer_selection_coefficients**: Subdirectory containing the scripts to infer selection coefficients for the four candidate variants using the HMM framework (Supplementary Methods g, Figures SX3, SX4, SX5, SX6, Table SX5).
