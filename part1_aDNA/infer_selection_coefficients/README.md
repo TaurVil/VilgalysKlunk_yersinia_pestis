@@ -1,5 +1,5 @@
 This repository hosts scripts used to obtain and replicate estimates of confidence interval of the four SNP-of-interest in Klunk & Vigalys (2022). These loci are:
-| chr | position (hg19) | rsID | relevant gene | estimated _s_ | adjusted _s_ | 95\% CI | Emp. percentile* |
+| chr | position (hg19) | rsID | relevant gene | estimated _s_ | bootstrap _s_ | 95\% CI | Emp. percentile* |
 |:-----:|-----------------:| :----: | :------:| :----: | :---: | :---: | :--: | 
 | 5 | 96,244,549 | rs2549794 | _ERAP1_/2 | 0.39 | 0.40 | (0.19, 0.62) | 0* | 
 | 5 | 114,915,460 | rs17473484 | _TICAM2_/_TMED7_ | -0.28 | -0.26 | (-0.59, 0.06) | 3.63 x 10<sup>-3</sup> |
