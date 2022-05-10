@@ -7,7 +7,7 @@ Jennifer Klunk*, Tauras P. Vilgalys*, Christian E. Demeure, Mari Shiratori, Juli
 
 We've divided the code and analyses in this repository to four sections based on the major data types used in these analyses. For convenience, we include processed data and results files which can be used to recreate the figures in our manuscript. 
 
-1. **ancient genomes**: identifying candidate variants for positive selection during the black death using ancient genomes
+1. **ancient genomes**: identifying candidate variants for positive selection during the black death using ancient genomes and estimate the strength of selection at these variants
 
 2. **expression in macrophages**: monocyte-derived macrophage gene expression in response to _Yersinia pestis_ stimulation
 
