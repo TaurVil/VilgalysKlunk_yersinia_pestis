@@ -15,12 +15,24 @@ This repository hosts scripts used to obtain and replicate estimates of confiden
 
 ## 0. Environment set-up
 
-Scripts in this repository are written and tested in a unix environment and should be able to work in unix/macOS and Windows WSL with proper set up. To download/clone this repository and the linked submodule, use commands:
+Scripts in this repository are written and tested in a unix environment and should be able to work in unix/macOS and Windows WSL/WSL2 with proper set up. To set up this repository for running the scripts, use commands:
 
 ```shell
-git clone https://github.com/steinrue/black_death_analysis.git
-cd black_death_analysis/
+# if you haven't clone the repo yet
+git clone https://github.com/TaurVil/VilgalysKlunk_yersinia_pestis.git
+
+# navigate to current directory
+cd VilgalysKlunk_yersinia_pestis/part1_aDNA/infer_selection_coefficients/
+
+# load submodule
 git submodule update --init --recursive
+# it should contain these files now:
+ls diplo_locus/
+# diffusion_core.py  LICENSE  likelihood.py  README.md  simulate.py  utility.py
+
+# unzip genotype likelihood data to the current directory
+# this will create a `genolik/` directory here
+unzip ../DATA/genoliks.zip
 ```
 
 <details>
@@ -127,7 +139,7 @@ Rscript plot_LLcurves.r Candidates_derived
 [<img src="images/Candidates_derived_LL_curves.png" width="600" />](images/Candidates_derived_LL_curves.png)
 
 ## 3. Estimating confidence intervals (CIs) from simulations
-[<img src="/images/schematics_newSkull.png" width="400" />](/images/schematics_newSkull.png)
+[<img src="images/schematics_newSkull.png" width="400" />](images/schematics_newSkull.png)
 ### 3.1 Generating simulations and compute likelihoods
 The script `Bootstrap_CIreps_simulation.py` will collect the samples at each of the four candidate loci, randomly re-sample with replacement as the initial condition, generate a given number of replicates based on the population genetic model we have for the two populations, compute their log-likelihoods and MLEs, write out the interpolated confidence intervals from these reps, and plot the. The user can use `-h` to check out the argument needed.
 ```shell
