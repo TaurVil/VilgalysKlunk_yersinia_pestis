@@ -1,3 +1,3 @@
 [submodule "part1_aDNA/infer_selection_coefficients/diplo_locus"]
 	path = part1_aDNA/infer_selection_coefficients/diplo_locus
-	url = https://github.com/steinrue/diplo_locus
+	url = https://github.com/steinrue/diplo_locus.git
