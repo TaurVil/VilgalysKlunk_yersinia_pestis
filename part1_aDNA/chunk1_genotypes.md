@@ -83,13 +83,13 @@ sbatch --array=111-120 --mem=2G run.02.mapdamage.sh
 	for index in `seq 111 120`; do f=`head -$index ../00_sample.list | tail -1`; mapDamage -i merged.$f.bam -r ../my_genomes/hg19/hg19.fa --rescale; echo $index $f; done 
 
 # move the bam files to a new directory rather than the sub-directories created by mapDamage 
-mkdir bams_mapDamage; mv ./bams/merged.*.mapDamage/*bam ./bams_mapDamage/
-ls bams_mapDamage/ | sed -e 's/merged.//g' | sed -e 's/.rescaled.bam//g' > 00_mapDamage_bams.list
+mkdir rescaled_bams; mv ./bams/merged.*.mapDamage/*bam ./rescaled_bams/
+ls rescaled_bams/ | sed -e 's/merged.//g' | sed -e 's/.rescaled.bam//g' > 00_mapDamage_bams.list
 
 # Trim each read
 # -L and -R commands indicate to trim the first/last 4bp of each read
 mkdir bams_trim4
-for f in `cat 00_mapDamage_bams.list`; do ../Programs/bamUtil/bam trimBam bams_mapDamage/merged.$f.rescaled.bam bams_trim4/$f.bam -L 4 -R 4; echo $f; done
+for f in `cat 00_mapDamage_bams.list`; do ../Programs/bamUtil/bam trimBam rescaled_bams/merged.$f.rescaled.bam bams_trim4/$f.bam -L 4 -R 4; echo $f; done
 
 ```
 
