@@ -461,4 +461,4 @@ rm(list=ls(pattern="calc_gwas_pval")); rm(list=ls(pattern="calc_neut_pval")); rm
 ########
 
 # We'll end this document here and switch to an R markdown file to take a closer look at the results. 
-save.image("./DATA_part1.RData")
+save.image("./DATA/part1.RData")

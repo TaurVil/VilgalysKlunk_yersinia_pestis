@@ -1,0 +1,23 @@
+
+/part1_aDNA - Corrected/DATA
+/part1_aDNA - Corrected/DATA/sims*
+*.RData
+*.mean
+*.idepth
+*.Rhistory
+*.html
+*.pdf
+*.zip
+*.genolik
+*.indv
+part1_aDNA/DATA/SampleNames/keep*
+part1_aDNA/245_with_cov.txt
+part1_aDNA/analyzed_vs_sequenced_ERAP2_data.R
+part1_aDNA/DATA/sims.exon.txt
+part1_aDNA/DATA/sims.immune.txt
+part1_aDNA/DATA/sims.neutral.txt
+part1_aDNA/DATA/genoliks/neutral.frq
+part1_aDNA/DATA/genoliks/immune.frq
+part1_aDNA/DATA/genoliks/exon.frq
+part1_aDNA/DATA/r02.candidate_loci.RData
+part1_aDNA/DATA/fst.merged_EUR_pops_pairwise.txt

@@ -94,9 +94,9 @@ library(ggplot2); library(patchwork)
 
 #with maf
 info <- cbind(info, pvals[,6:9])
-colnames(info)[22:25] <- c("L13.pval", "L12.pval", "L23.pval", "D13.pval")
+colnames(info)[26:29] <- c("L13.pval", "L12.pval", "L23.pval", "D13.pval")
 info_neut <- cbind(info_neut, neut_pvals[,6:9])
-colnames(info_neut)[22:25] <- c("L13.pval", "L12.pval", "L23.pval", "D13.pval")
+colnames(info_neut)[26:29] <- c("L13.pval", "L12.pval", "L23.pval", "D13.pval")
 
 rm(pvals, neut_pvals)
 ```
@@ -358,7 +358,7 @@ panel_manhattan <- ggplot(don, aes(x=BPcum, y=london_post_pre.fst)) +
   geom_point(data=subset(don, don$is.highlight==1), aes(x=BPcum, y=london_post_pre.fst), color="orange", size=2.2*10^(.5-subset(don, don$is.highlight==1)$D13.pval)) +
   
   # Add label for highlighted points
-  geom_text(aes(label=subset(don, don$is.highlight==1)$site), data=subset(don, don$is.highlight==1), nudge_x=-150000000) +
+  geom_text(aes(label=subset(don, don$is.highlight==1)$rsid_end), data=subset(don, don$is.highlight==1), nudge_x=-150000000) +
   
   # legends and labels
   theme_classic() + xlab(label = "chromosome") + ylab(label="Fst: London before vs after plague") +
@@ -381,10 +381,6 @@ panel_manhattan
 rm(design, design2, bins, axisdf, perc, min_neutral_nsites, min_n, min_maf, method, mafs, window_size)
 rm(list=ls(pattern="missing_"))
 rm(list=ls(pattern="samples_"))
-
-candidate2$rsid <- c(
-  "rs1052025", "rs17473484", "rs11571319", "rs2549794"
-)
 
 candidate2
 min(info$maf)
@@ -417,7 +413,7 @@ B_L13_95th <- subset(info, info$L13.pval < 0.05)
 C_replicated_in_plague_burials <- subset(B_L13_95th, !(sign(B_L13_95th$delta_L13) == sign(B_L13_95th$delta_L12)))
 rm(info, candidate2)
 
-save.image("./DATA/r02.candidate_loci.RData")
+save.image("./DATA/r02.candidate_loci_fixed_rsids.RData")
 
 
 

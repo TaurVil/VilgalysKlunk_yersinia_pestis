@@ -1,3 +1,5 @@
+setwd("C:/Users/taurv/Documents/GitHub/VilgalysKlunk_yersinia_pestis/part4_cytokines")
+
 ## Read in data
 # each row contains the cytokine level for pestis-stimulated samples versus the null control samples at the same time point. we'll calculate the difference between them below, and call it `value`
 ###########################
@@ -41,45 +43,64 @@ summary(lm(data = tmp[tmp$TIME == "24h",], PC4 ~ as.numeric(as.character(GT))))
 ## For each cytokine, measure cytokine level as a function of genotype and plot
 ## Normalize data for each cytokine using qqnorm
 ###########################
+data$GT[data$genotype == "Allele 2"] <- 0
+data$GT[data$genotype == "Allele 1"] <- 2
+data$GT[data$genotype == "HE"] <- 1
+
+# replace "value" with "Null" to get the p-values for unstimulated data in line 53
 for (ck in cks) {
   tmp <- data[data$cytokine == ck,]
   print(ck)
   tmp2 <- tmp[tmp$time == '24h',]
   tmp2$value <- qqnorm(tmp2$value, plot.it = F)$x
   
-  print(summary(lm(tmp2$value ~ tmp2$gt))$coefficients)
-  print(summary(lm(tmp2$value ~ tmp2$gt))$r.squared)
+  print(summary(lm(tmp2$value ~ as.numeric(as.character(tmp2$GT))))$coefficients)
+  print(summary(lm(tmp2$value ~ as.numeric(as.character(tmp2$GT))))$r.squared)
   #print(summary(lm(tmp2$value ~ tmp2$selection))$coefficients)
 }
 ###########################
 
 ## Plot the 4 significant cytokines
 ###########################
+data$gt <- gsub("Allele 1", "2_C/C", data$genotype)
+data$gt <- gsub("Allele 2", "0_T/T", data$gt)
+data$gt <- gsub("HE", "1_T/C", data$gt)
+
 tmp <- data[data$cytokine == "G-CSF",]; tmp$value <- qqnorm(tmp$value, plot.it = F)$x
-p3 <- ggplot(data=tmp, aes(y=value, x=as.factor(status), fill=as.factor(gt))) + 
-  geom_boxplot(outlier.shape = NA) + ggtitle("G-CSF") + geom_jitter(width=0.2,col='gray45') +
+p3 <- ggplot(data=tmp, aes(y=value, x=as.factor(gt), fill=as.factor(gt))) + 
+  geom_boxplot(outlier.shape = NA) + ggtitle("G-CSF") + geom_jitter(width=0.2,col='gray45', size=2, show.legend = F) + xlab("rs249794 genotype") +
   theme_classic() + scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
 tmp <- data[data$cytokine == "IL1B",]; tmp$value <- qqnorm(tmp$value, plot.it = F)$x
-p4 <- ggplot(data=tmp, aes(y=value, x=as.factor(status), fill=as.factor(gt))) + 
-  geom_boxplot(outlier.shape = NA) + ggtitle("IL1B") + geom_jitter(width=0.2,col='gray45') +
+p4 <- ggplot(data=tmp, aes(y=value, x=as.factor(gt), fill=as.factor(gt))) + 
+  geom_boxplot(outlier.shape = NA) + ggtitle("IL1B") + geom_jitter(width=0.2,col='gray45', size=2, show.legend = F) + xlab("rs249794 genotype") +
   theme_classic() + scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
 tmp <- data[data$cytokine == "IL10",]; tmp$value <- qqnorm(tmp$value, plot.it = F)$x
-p5 <- ggplot(data=tmp, aes(y=value, x=as.factor(status), fill=as.factor(gt))) + 
-  geom_boxplot(outlier.shape = NA) + ggtitle("IL10") + geom_jitter(width=0.2,col='gray45') +
+p5 <- ggplot(data=tmp, aes(y=value, x=as.factor(gt), fill=as.factor(gt))) + 
+  geom_boxplot(outlier.shape = NA) + ggtitle("IL10") + geom_jitter(width=0.2,col='gray45', size=2, show.legend = F) + xlab("rs249794 genotype") +
   theme_classic() + scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
 tmp <- data[data$cytokine == "CCL3",]; tmp$value <- qqnorm(tmp$value, plot.it = F)$x
-p6 <- ggplot(data=tmp, aes(y=value, x=as.factor(status), fill=as.factor(gt))) + 
-  geom_boxplot(outlier.shape = NA) + ggtitle("CCL3") + geom_jitter(width=0.2,col='gray45') +
+p6 <- ggplot(data=tmp, aes(y=value, x=as.factor(gt), fill=as.factor(gt))) + 
+  geom_boxplot(outlier.shape = NA) + ggtitle("CCL3") + geom_jitter(width=0.2,col='gray45', size=2, show.legend = F) + xlab("rs249794 genotype") +
   theme_classic() + scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
 
-part2 <- p3 + p4 + p5 + p6 ; part2
+part2 <- p3 + p4 + p5 + p6 
+part2 <- part2 + plot_annotation(tag_levels = 'A') + plot_layout(guides = 'collect') & theme(legend.position = 'bottom')
+part2
 ###########################
 
 
 ## Merge elements of figure 4 in Illustrator (no idea why this didn't work smoothly)
 ###########################
-## print part1 and part2 as 6x8 figures
-part1 
-part2 + plot_annotation(tag_levels = 'A') + plot_layout(guides = 'collect') & theme(legend.position = 'bottom')
+
+cfu$gt <- gsub("Allele 1", "2_C/C", cfu$allele)
+cfu$gt <- gsub("Allele 2", "0_T/T", cfu$gt)
+cfu$gt <- gsub("Allèle 1", "2_C/C", cfu$gt)
+cfu$gt <- gsub("HE", "1_T/C", cfu$gt)
+
+pcfu <- ggplot(data=cfu, aes(y=perc_kill, x=as.factor(gt), fill=as.factor(gt))) + 
+  geom_boxplot(outlier.shape = NA) + geom_jitter(width=0.2,col='gray45', size=4, show.legend = F) + xlab("rs249794 genotype") + ylab("proportion of colony forming units remaining after 24h") + ggtitle("remaining colony forming units") +
+  theme_classic() + scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) + theme(legend.position = 'none'); pcfu
+
+part2 | pcfu1 + plot_annotation(tag_levels = 'A') + plot_layout(guides = 'collect') & theme(legend.position = 'bottom')
 
 ( p2 / p1 ) + part2 + plot_annotation(tag_levels = 'A') + plot_layout(guides = 'collect', nrow = 2, ncol=3)
